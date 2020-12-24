@@ -1,0 +1,108 @@
+.navbar {
+	position: fixed;
+	width: 100%;
+	z-index: 9999; /* to keep the navbar on top (always) */
+	top: 0;
+	background-color: #2e2e2e;
+	font-weight: 400;
+}
+
+.navbar-brand {
+	font-weight: 500;
+}
+
+.site-header .navbar-nav .nav-link {
+	color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+	color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+	font-weight: 500;
+}
+
+.page-head {
+	padding-top: 1.5em;
+}
+
+#full-screen-background, #full-screen-weather {
+	color: white;
+	font-family: 'Comfortaa', cursive;
+	background-repeat: no-repeat;
+	width: auto;
+	background-size: cover;
+	background-position-y: center;
+	margin-top: 55px;
+}
+
+#full-screen-background {
+	height: -o-calc(100vh - 56px);
+	/* opera */
+	height: -webkit-calc(100vh - 56px);
+	/* google, safari */
+	height: -moz-calc(100vh - 56px);
+	/* firefox */
+}
+
+#full-screen-weather {
+	height: fit-content;
+}
+
+#clock {
+	font-size: 10em;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -40%);
+}
+
+.icon {
+	width: 40%;
+	height: auto;
+	filter: brightness(0) invert(1);
+}
+
+#weather-left {
+	text-align: center;
+	display: block;
+	border-right: 3px solid #ccc;
+}
+
+#weather-left > h3 {
+	padding-bottom: 0.3em;
+}
+
+#weather-right {
+	padding-left: 4em;
+}
+
+#weather-right > h3 {
+	padding-bottom: 1em;
+}
+
+/* for mobile devices (tablets) */
+
+@media only screen and (max-width: 767px) {
+	#clock {
+		font-size: 7em;
+	}
+	#weather-left {
+		border-right: none;
+		border-bottom: 3px solid #ccc;
+	}
+	#weather-right {
+		padding-left: 15px;
+		margin-top: 1em;
+		text-align: center;
+	}
+}
+
+/* for mobile devices (smart phone) */
+
+@media only screen and (max-width: 475px) {
+	#clock {
+		font-size: 5em;
+	}
+}

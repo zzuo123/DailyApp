@@ -1,0 +1,13 @@
+- [x] layout.html
+- [x] Create main.css style sheet for layout
+- [x] Home/Time page
+- [x] Populate background image folder
+- [x] Use session to persist background image
+- [x] Make Weather API call
+- [x] Weather page
+- [x] Styling the weather page
+- [x] Create database to store user info
+- [x] Login page
+- [x] User login system
+- [ ] Diary page
+- [ ] Give Kelly 10000000000 million Dollars
