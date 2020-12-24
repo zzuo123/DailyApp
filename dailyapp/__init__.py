@@ -20,5 +20,7 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'login'  # function name of the route, like url_for function
 login_manager.login_message_category = 'info'  # this is to style the prompt for user to login before viewing /account page (info is a bootstrap class)
 
-# Only import from dailyapp starting here (because they require db or app)
-from dailyapp import routes
+from dailyapp.main.routes import main
+from dailyapp.users.routes import users
+app.register_blueprint(main)
+app.register_blueprint(users)
