@@ -3,4 +3,5 @@ venv
 __pycache__
 user_wallpapers
 wallpapers
+demo_src
 dailyapp.db
