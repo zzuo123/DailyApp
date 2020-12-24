@@ -24,7 +24,7 @@
 }
 
 .page-head {
-	padding-top: 1.5em;
+	padding-top: 0.5em;
 }
 
 #full-screen-background, #full-screen-weather {
@@ -34,6 +34,7 @@
 	width: auto;
 	background-size: cover;
 	background-position-y: center;
+	filter: brightness(75%);
 	margin-top: 55px;
 }
 

@@ -9,5 +9,10 @@
 - [x] Create database to store user info
 - [x] Login page
 - [x] User login system
+- [x] Make background image darker
+- [x] Register page
+- [x] Register System
+- [ ] User account page (set zipa and change user info)
+- [ ] Password reset page
+- [ ] Password reset system
 - [ ] Diary page
-- [ ] Give Kelly 10000000000 million Dollars
