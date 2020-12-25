@@ -1,4 +1,4 @@
-import json, urllib.request, os, random
+import json, urllib.request, os
 from datetime import datetime
 
 
@@ -56,7 +56,8 @@ def parse_weather(data, units):
 example_response = {'coord': {'lon': -71.06, 'lat': 42.43}, 'weather': [{'id': 500, 'main': 'Rain', 'description': 'light rain', 'icon': '10d'}, {'id': 701, 'main': 'Mist', 'description': 'mist', 'icon': '50d'}], 'base': 'stations', 'main': {'temp': 34.57, 'feels_like': 26.92, 'temp_min': 33.01, 'temp_max': 36, 'pressure': 1008, 'humidity': 86}, 'visibility': 6437, 'wind': {'speed': 6.93, 'deg': 360}, 'rain': {'1h': 0.44}, 'clouds': {'all': 90}, 'dt': 1608575189, 'sys': {'type': 1, 'id': 3486, 'country': 'US', 'sunrise': 1608552639, 'sunset': 1608585269}, 'timezone': -18000, 'id': 0, 'name': 'Malden', 'cod': 200}
 
 def get_weather(zip, units='imperial'):
-	# weather = weather_from_api(zip, units)
-	list = parse_weather(weather_from_api('02148', units), units)
-	# list = parse_weather(example_response, units)
-	return list
+	data = weather_from_api(zip, units)
+	if data:
+		return parse_weather(data, units)
+	else:
+		return None

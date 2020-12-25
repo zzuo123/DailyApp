@@ -12,7 +12,9 @@
 - [x] Make background image darker
 - [x] Register page
 - [x] Register System
-- [ ] User account page (set zipa and change user info)
-- [ ] Password reset page
-- [ ] Password reset system
-- [ ] Diary page
+- [x] Visitor zip setting page
+- [x] Style the zip setting page
+- [] User account page (set zip and change user info)
+- [] Password reset page
+- [] Password reset system
+- [] Diary page

@@ -14,6 +14,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(120), unique=True, nullable = False)
     image_file = db.Column(db.String(20), nullable = False, default='default.jpg')
     password = db.Column(db.String(60), nullable = False)
+    zipcode = db.Column(db.String(5), default='none')
     diaries = db.relationship('Diary', backref = 'author', lazy = True)
     
     def __repr__(self):
