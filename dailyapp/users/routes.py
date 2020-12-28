@@ -1,8 +1,8 @@
-from flask import render_template, redirect, url_for, flash, request, Blueprint, current_app
+from flask import render_template, redirect, url_for, flash, request, Blueprint, current_app, session
 from flask_login import current_user, login_user, logout_user, login_required
 from dailyapp import db, bcrypt
 from dailyapp.models import User
-from dailyapp.users.forms import PreRegisterForm, RegisterForm, LoginForm
+from dailyapp.users.forms import PreRegisterForm, RegisterForm, LoginForm, UpdateAccountForm
 from dailyapp.users.utils import send_pre_register_email, Serializer
 
 users = Blueprint('users', __name__)
@@ -66,10 +66,25 @@ def login():
 @users.route('/logout')
 def logout():
     logout_user()
+    session.pop('zipcode')
     return redirect(url_for('main.home'))
 
 
-@users.route('/account')
+@users.route('/account', methods=['GET', 'POST'])
 @login_required
 def account():
-    return render_template('account.html', title='Account')
+    form = UpdateAccountForm()
+    if form.validate_on_submit():
+        current_user.username = form.username.data
+        current_user.email = form.email.data
+        current_user.zipcode = form.zipcode.data
+        db.session.commit()
+        # have to update zipcode in session (because it is stored in cookie)
+        session['zipcode'] = form.zipcode.data
+        flash('Your account has been updated!', 'success')
+        return redirect(url_for('users.account'))
+    elif request.method == 'GET':
+        form.username.data = current_user.username
+        form.email.data = current_user.email
+        form.zipcode.data = current_user.zipcode
+    return render_template('account.html', title='Account', form=form)

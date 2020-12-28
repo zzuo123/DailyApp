@@ -1,7 +1,5 @@
 import random
-from flask import render_template, session, Blueprint, flash
-from flask.helpers import url_for
-from werkzeug.utils import redirect
+from flask import render_template, session, Blueprint
 from dailyapp.main.weather import get_weather
 from flask_login import current_user
 from dailyapp.users.forms import ZipForm
@@ -31,12 +29,7 @@ def weather():
     else:
         form = ZipForm()
         if form.validate_on_submit():
-            zipcode = form.zipcode.data
-            data = get_weather(zipcode)
-            if not data:  # owm didn't return data for that zipcode
-                flash('That zip code doesn\'t seem to work. Please try again!', 'warning')
-                return redirect(url_for('main.home'))
-            else:
-                session['zipcode'] = form.zipcode.data
-                return render_template('weather.html', title='Weather', background=get_image(), weather=data)
+            session['zipcode'] = form.zipcode.data
+            data = get_weather(session['zipcode'])
+            return render_template('weather.html', title='Weather', background=get_image(), weather=data)
         return render_template('get_zip.html', title='Weather', background=get_image(), form=form)

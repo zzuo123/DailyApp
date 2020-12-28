@@ -14,7 +14,8 @@
 - [x] Register System
 - [x] Visitor zip setting page
 - [x] Style the zip setting page
-- [ ] User account page (set zip and change user info)
+- [x] User account page (set zip and change user info)
+- [ ] Style the User account page
 - [ ] Add custom background image support
 - [ ] Password reset page
 - [ ] Password reset system

@@ -12,12 +12,12 @@ def weather_from_api(zip, units, API_key=os.environ.get('owm_api_key')):
 	return data
 
 
-def get_icon(sunrise, sunset, id):
+def get_icon(now, sunrise, sunset, id):
+	hour = int(datetime.utcfromtimestamp(now).strftime('%H'))
 	sunrise_hour = int(datetime.utcfromtimestamp(sunrise).strftime('%H'))
 	sunset_hour = int(datetime.utcfromtimestamp(sunset).strftime('%H'))
 	with open('dailyapp/static/icons.json') as f:
 		icon = json.load(f)[str(id)]['icon']
-	hour = datetime.now().hour
 	if not (id > 699 and id < 800) and not (id > 899 and id < 1000):
 		if hour > sunrise_hour and hour < sunset_hour:
 			icon = "day-"+icon
@@ -29,7 +29,7 @@ def get_icon(sunrise, sunset, id):
 def parse_weather(data, units):
 	# we want [0]city, [1]weather, [2]icon, [3]temp, [4]feel, [5]min, [6]max, [7]pressure, [8]humidity, [9]visibility, [10]wind speed, [11]wind degree, [12]cloudiness, [13]sunrise, [14]sunset, [15]update_time
 	weather = [data['name'], data['weather'][0]['description']]
-	icon = get_icon(data['sys']['sunrise'], data['sys']['sunset'], data['weather'][0]['id'])
+	icon = get_icon(data['dt'] + data['timezone'], data['sys']['sunrise'] + data['timezone'], data['sys']['sunset'] + data['timezone'], data['weather'][0]['id'])
 	weather.append(icon)
 	if units == 'metric':
 		weather.append(str(data['main']['temp'])+'°C')
