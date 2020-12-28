@@ -48,7 +48,6 @@ class LoginForm(FlaskForm):
 
 class UpdateAccountForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
-    email = StringField('Email', validators=[DataRequired(), Email()])
     zipcode = StringField('Zipcode')
     submit = SubmitField('Update')
 
@@ -57,11 +56,6 @@ class UpdateAccountForm(FlaskForm):
             user = User.query.filter_by(username=username.data).first()
             if user:  # if user exists in the User table
                 raise ValidationError('That username is taken. Please choose a diffferent one.')
-    def validate_email(self, email):
-        if email.data != current_user.email:
-            email = User.query.filter_by(email=email.data).first()
-            if email:  # if email exists in the User table
-                raise ValidationError('That email is used by another user. Please user a diffferent one.')
     def validate_zipcode(self, zipcode):
         valid_zip = re.search(r'^\d{5}$', zipcode.data)
         if not valid_zip or not weather_from_api(zipcode.data, 'imperial'):

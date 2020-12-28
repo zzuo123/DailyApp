@@ -15,8 +15,8 @@
 - [x] Visitor zip setting page
 - [x] Style the zip setting page
 - [x] User account page (set zip and change user info)
-- [ ] Style the User account page
-- [ ] Add custom background image support
-- [ ] Password reset page
-- [ ] Password reset system
+- [x] Style the User account page
 - [ ] Diary page
+- [ ] Add custom background image support
+- [ ] Email and Password reset page
+- [ ] Email and Password reset system

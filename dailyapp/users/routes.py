@@ -76,7 +76,6 @@ def account():
     form = UpdateAccountForm()
     if form.validate_on_submit():
         current_user.username = form.username.data
-        current_user.email = form.email.data
         current_user.zipcode = form.zipcode.data
         db.session.commit()
         # have to update zipcode in session (because it is stored in cookie)
@@ -85,6 +84,5 @@ def account():
         return redirect(url_for('users.account'))
     elif request.method == 'GET':
         form.username.data = current_user.username
-        form.email.data = current_user.email
         form.zipcode.data = current_user.zipcode
     return render_template('account.html', title='Account', form=form)
