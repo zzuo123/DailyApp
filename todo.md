@@ -16,7 +16,8 @@
 - [x] Style the zip setting page
 - [x] User account page (set zip and change user info)
 - [x] Style the User account page
-- [ ] Diary page
+- [x] Diary pages
+- [ ] Styling the Diary pages
 - [ ] Add custom background image support
 - [ ] Email and Password reset page
 - [ ] Email and Password reset system

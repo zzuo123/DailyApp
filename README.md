@@ -7,11 +7,12 @@ Hi there, thanks for having an interest in daily app. It is still under developm
 ![Home page](./demoimg/demo1.png)
 2. Weather page that shows weather in your location (zip setting functionality comming soon)
 ![Weather page](./demoimg/demo2.png)
+3. Create an account and store your custom zipcode and username information
+3. Write, edit and delete diary entries
 
 ## What other functionality are comming ?
 You can always check [todo.md](./todo.md)
-1. User settings (including custom name, zip code for weather, etc.)
-2. Diary page! A place where you can write a diary entry every day.
+1. Custom background image support coming soon!
 
 ## To run on your local machine:
 1. You'll need to create a folder inside the [images](./dailyapp/images) called wallpapers and fill it with 11 wallpapers.

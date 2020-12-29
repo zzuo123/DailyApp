@@ -1,0 +1,38 @@
+{% extends "diary_layout.html" %}
+{% block diary %}
+<article class="media">
+    <div class="media-body bg-light pl-4 pr-4 pt-3 pb-3 border rounded">
+        <div class="article-metadata mb-4">
+            <h2 class='article-title'>{{ diary.title }}</h2>
+            <a class="text-muted">Date posted:{{ diary.date_posted.strftime('%Y-%m-%d') }}</a>
+            <div>
+                <a href="{{ url_for('diaries.update_entry', diary_id=diary.id) }}"
+                    class="btn btn-secondary btn-sm mt-1 mb-1">Update</a>
+                <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal"
+                    data-target="#deleteModal">Delete</button>
+            </div>
+        </div>
+        <p class="article-content">{{ diary.content }}</p>
+    </div>
+</article>
+<!-- Modal -->
+<div class="modal fade pt-5" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Are you sure you want to delete this diary entry?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <form action="{{ url_for('diaries.delete_entry', diary_id=diary.id) }}" method="POST">
+                    <input class="btn btn-danger" type="submit" value="Delete">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock diary %}

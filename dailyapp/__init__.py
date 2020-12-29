@@ -22,5 +22,7 @@ login_manager.login_message_category = 'info'  # this is to style the prompt for
 
 from dailyapp.main.routes import main
 from dailyapp.users.routes import users
+from dailyapp.diaries.routes import diaries
 app.register_blueprint(main)
 app.register_blueprint(users)
+app.register_blueprint(diaries)

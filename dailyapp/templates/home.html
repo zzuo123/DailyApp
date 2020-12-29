@@ -5,7 +5,13 @@
 {% else %}
 <div id="full-screen-background">
 {% endif %}
-	<h1 class="text-center text-white page-head">Current time is:</h1>
+	<h1 class="text-center text-white page-head">
+		{% if current_user.is_authenticated %}
+		Welcome back, {{ current_user.username }}!
+		<br>
+		{% endif %}
+		Current time is:
+	</h1>
 	<h2 id="clock" class='text-center'></h2>
 	<script type="text/javascript" src="{{ url_for('static', filename='clock.js') }}"></script>
 </div>

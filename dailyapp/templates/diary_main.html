@@ -1,0 +1,14 @@
+{% extends "diary_layout.html" %}
+{% block diary %}
+{% for diary in diaries %}
+<div class="bg-light pl-4 pr-4 pt-3 pb-3 border rounded mb-3">
+    <article class="media content-section">
+        <div class="media-body">
+            <h2><a class="article-title" href="{{ url_for('diaries.diary', diary_id=diary.id) }}">{{ diary.title
+                    }}</a></h2>
+            <a class="text-muted">Date posted:{{ diary.date_posted.strftime('%Y-%m-%d') }}</a>
+        </div>
+    </article>
+</div>
+{% endfor %}
+{% endblock diary %}
