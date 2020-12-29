@@ -12,7 +12,9 @@ Hi there, thanks for having an interest in daily app. It is still under developm
 
 ## What other functionality are comming ?
 You can always check [todo.md](./todo.md)
-1. Custom background image support coming soon!
+1. Support for securely changing email or password
+2. Custom background image support
+3. (Maybe) add google login support
 
 ## To run on your local machine:
 1. You'll need to create a folder inside the [images](./dailyapp/images) called wallpapers and fill it with 11 wallpapers.
