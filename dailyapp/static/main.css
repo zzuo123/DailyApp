@@ -27,13 +27,13 @@
 	padding-top: 0.5em;
 }
 
-#full-screen-background, #full-screen-weather {
+#full-screen-background, #full-screen-scroll {
 	color: white;
 	font-family: 'Comfortaa', cursive;
 	background-repeat: no-repeat;
-	width: auto;
 	background-size: cover;
 	background-position-y: center;
+	width: auto;
 	filter: brightness(75%);
 }
 
@@ -46,8 +46,8 @@
 	/* firefox */
 }
 
-#full-screen-weather {
-	height: fit-content;
+#full-screen-scroll {
+	background-attachment: fixed;
 }
 
 #clock {
@@ -121,7 +121,7 @@ a.article-title:hover {
 	}
 	#weather-left {
 		border-right: none;
-		border-bottom: 3px solid #ccc;
+		margin-bottom: 5px;
 	}
 	#weather-right {
 		padding-left: 15px;
@@ -132,6 +132,9 @@ a.article-title:hover {
 		padding: 10px;
 		position: relative;
 		text-align: center;
+	}
+	.form-note {
+		margin-top: 20px;
 	}
 }
 
