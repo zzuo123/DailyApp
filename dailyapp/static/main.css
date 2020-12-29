@@ -113,6 +113,15 @@ a.article-title:hover {
 	text-decoration: none;
 }
 
+.diary-content {
+	margin-right: 20px;
+	margin-bottom: 15px;
+}
+
+.diary-sidebar {
+	height: fit-content;
+}
+
 /* for mobile devices (tablets) */
 
 @media only screen and (max-width: 767px) {
@@ -135,6 +144,12 @@ a.article-title:hover {
 	}
 	.form-note {
 		margin-top: 20px;
+	}
+	.diary-content {
+		margin: 0px 20px 15px 20px;
+	}
+	.diary-sidebar {
+		margin: 10px 20px 0px 20px;
 	}
 }
 

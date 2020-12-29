@@ -1,14 +1,26 @@
 {% extends "diary_layout.html" %}
 {% block diary %}
-{% for diary in diaries %}
-<div class="bg-light pl-4 pr-4 pt-3 pb-3 border rounded mb-3">
+{% for diary in diaries.items %}
+<div class="bg-light pl-4 pr-4 pt-3 pb-3 border rounded diary-content">
     <article class="media content-section">
         <div class="media-body">
             <h2><a class="article-title" href="{{ url_for('diaries.diary', diary_id=diary.id) }}">{{ diary.title
                     }}</a></h2>
-            <a class="text-muted">Date posted:{{ diary.date_posted.strftime('%Y-%m-%d') }}</a>
+            <a class="text-muted">Date posted: <span class="time-posted">{{ diary.date_posted.strftime('%Y-%m-%d %H:%M:%S') }}</span></a>
         </div>
     </article>
 </div>
+<script type="text/javascript" src="{{ url_for('static', filename='local_time.js') }}"></script>
+{% endfor %}
+{% for page_num in diaries.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+{% if page_num %}
+{% if diaries.page == page_num %}
+<a class="btn btn-info mb-4" href="{{ url_for('diaries.diary_main', page=page_num) }}">{{ page_num }}</a>
+{% else %}
+<a class="btn btn-outline-info mb-4" href="{{ url_for('diaries.diary_main', page=page_num) }}">{{ page_num }}</a>
+{% endif %}
+{% else %}
+...
+{% endif %}
 {% endfor %}
 {% endblock diary %}

@@ -1,7 +1,7 @@
 {% extends "diary_layout.html" %}
 {% block diary %}
 <article class="media">
-    <div class="media-body bg-light pl-4 pr-4 pt-3 pb-3 border rounded">
+    <div class="media-body bg-light pl-4 pr-4 pt-3 pb-3 border rounded diary-content">
         <div class="article-metadata mb-4">
             <h2 class='article-title'>{{ diary.title }}</h2>
             <a class="text-muted">Date posted:{{ diary.date_posted.strftime('%Y-%m-%d') }}</a>

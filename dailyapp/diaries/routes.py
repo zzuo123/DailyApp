@@ -1,4 +1,3 @@
-from logging import log
 from flask import Blueprint, flash, url_for, redirect, abort, request
 from flask.templating import render_template
 from flask_login import current_user, login_required
@@ -12,7 +11,9 @@ diaries = Blueprint('diaries', __name__)
 @diaries.route('/diary')
 @login_required
 def diary_main():
-    entries = Diary.query.all()
+    # get page number from the request, default value to 1 (making it optional) and casted to int type
+    page = request.args.get('page', 1, type=int)
+    entries = Diary.query.order_by(Diary.date_posted.desc()).paginate(page=page, per_page=5)
     return render_template('diary_main.html', diaries=entries)
 
 

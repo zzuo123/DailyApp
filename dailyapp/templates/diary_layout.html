@@ -6,13 +6,13 @@
 		<div class="col-md-8 p-0">
 			{% block diary %}{% endblock %}
 		</div>
-		<div class="col-md-4 bg-light p-4 border rounded">
+		<div class="col-md-4 bg-light p-4 border rounded diary-sidebar">
 			<h3>Diary Sidebar</h3>
 			<p class='text-muted'>Record your every-day moments in a diary!
 			<ul class="list-group">
 				<li class="list-group-item list-group-item-light"><a href="{{ url_for('diaries.diary_main') }}">All Diary Entries</a></li>
 				<li class="list-group-item list-group-item-light"><a href="{{ url_for('diaries.new_entry') }}">Write New Entry</a></li>
-				<li class="list-group-item list-group-item-light"><a href="{{ url_for('main.home') }}">Back To Home</a></li>
+				<li class="list-group-item list-group-item-light"><a href="{{ url_for('main.home') }}">Check Time</a></li>
 				<li class="list-group-item list-group-item-light"><a href="{{ url_for('main.weather') }}">Check Weather</a></li>
 			</ul>
 			</p>
