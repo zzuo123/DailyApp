@@ -8,12 +8,13 @@ Hi there, thanks for having an interest in daily app. It is still under developm
 2. Weather page that shows weather in your location (zip setting functionality comming soon)
 ![Weather page](./demoimg/demo2.png)
 3. Create an account and store your custom zipcode and username information
-3. Write, edit and delete diary entries
+4. Write, edit and delete diary entries
+5. Change your password by sending you an email with a link
 
 ## What other functionality are comming ?
 You can always check [todo.md](./todo.md)
-1. Support for securely changing email or password
-2. Custom background image support
+1. (Maybe) support for securely changing email
+2. (Maybe) custom background image support
 3. (Maybe) add google login support
 
 ## To run on your local machine:

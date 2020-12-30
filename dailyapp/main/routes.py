@@ -21,15 +21,13 @@ def home():
 
 @main.route('/weather', methods=['GET', 'POST'])
 def weather():
-    if (current_user.is_authenticated and current_user.zipcode != 'none') or 'zipcode' in session:
-        if 'zipcode' not in session:  # user logged in and set zip code, but first visit weather page
-            session['zipcode'] = current_user.zipcode
-        data = get_weather(session['zipcode'])
-        return render_template('weather.html', title='Weather', background=get_image(), weather=data)
-    else:
+    if session.get('zipcode') is None:
         form = ZipForm()
         if form.validate_on_submit():
             session['zipcode'] = form.zipcode.data
             data = get_weather(session['zipcode'])
             return render_template('weather.html', title='Weather', background=get_image(), weather=data)
         return render_template('get_zip.html', title='Weather', background=get_image(), form=form)
+    else:
+        data = get_weather(session['zipcode'])
+        return render_template('weather.html', title='Weather', background=get_image(), weather=data)

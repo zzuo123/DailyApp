@@ -18,6 +18,5 @@
 - [x] Style the User account page
 - [x] Diary pages
 - [x] Styling the Diary pages
-- [ ] Email and Password reset page
-- [ ] Email and Password reset system
-- [ ] Add custom background image support
+- [x] Password reset page
+- [x] Password reset system

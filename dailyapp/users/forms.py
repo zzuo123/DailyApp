@@ -60,3 +60,19 @@ class UpdateAccountForm(FlaskForm):
         valid_zip = re.search(r'^\d{5}$', zipcode.data)
         if not valid_zip or not weather_from_api(zipcode.data, 'imperial'):
             raise ValidationError('That doesn\'t look like a US zip code. Please try a different one.')
+
+
+class RequestResetForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    submit = SubmitField('Send Email')
+    
+    def validate_email(self, email):
+        user = User.query.filter_by(email=email.data).first()
+        if user is None:  # if email doesn't exist
+            raise ValidationError('There is no account with that email, you must register first.')
+
+
+class ResetPasswordForm(FlaskForm):
+    password = PasswordField('Password', validators=[DataRequired()])
+    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Reset Password')
