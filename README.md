@@ -1,5 +1,5 @@
-# Daily APP
-
+# [Daily APP](https://daily-app-twd.herokuapp.com/home)
+## Yay! We are up at Heroku now, [check it out](https://daily-app-twd.herokuapp.com/home)!
 Hi there, thanks for having an interest in daily app. It is still under development, but you are more than welcome to try it out! 
 
 ## What can it do (currently) ?
